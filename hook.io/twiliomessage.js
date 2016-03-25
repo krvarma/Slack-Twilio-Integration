@@ -2,7 +2,7 @@ module['exports'] = function echoHttp (hook) {
 	var apiai = require('apiai');
   	var https = require('https');
   	var querystring = require('querystring');
-	var app = apiai("11b98eb84eaf4d748425ed8aa00565be", "e71fe1e3-86e7-4411-a1bf-3a93063d7047");
+	var app = apiai("<your client access token>", "<your client subscription key>");
   	var query = hook.params["text"];
   
   	console.log(query);
@@ -41,12 +41,13 @@ module['exports'] = function echoHttp (hook) {
  	        console.log("Message Type: " + messagetype);
           	console.log("Phone Number: " + number);
           
-          	var client = require('twilio')('ACf90cd35da8864a0117aba6bbbe54aa84', '92778ee43e32ad0f08cc1e24c88c625e');
+          	var client = require('twilio')('<your account SID>', '<your authentication token>');
+			var fromNumber = '<your telephone number>';
 
             if(messagetype === 'voice'){
           		client.makeCall({
                 	    to:number, // Any number Twilio can call
-                    	from: '+18555069188', // A number you bought from Twilio and can use for outbound communication
+                    	from: fromNumber, // A number you bought from Twilio and can use for outbound communication
                     	url: 'https://hook.io/krvarma/gettwml?text=' + encodeURIComponent(message)  // A URL that produces an XML document (TwiML) which contains instructions for the call
                 	}, function(err, responseData) {
 	
@@ -61,7 +62,7 @@ module['exports'] = function echoHttp (hook) {
           	else{
             	client.messages.create({
                 	    to:number, // Any number Twilio can call
-                    	from: '+18555069188', // A number you bought from Twilio and can use for outbound communication
+                    	from: fromNumber, // A number you bought from Twilio and can use for outbound communication
                     	body: message  // A URL that produces an XML document (TwiML) which contains instructions for the call
                 	}, function(err, responseData) {
 	
