@@ -1,0 +1,135 @@
+{
+  "id": "519c74d4-8313-4ee0-b3b4-cb0e0fb2c63f",
+  "name": "twilio-slack",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Send message "
+        },
+        {
+          "text": "@sys.any:message",
+          "alias": "message",
+          "meta": "@sys.any",
+          "userDefined": true
+        },
+        {
+          "text": " to "
+        },
+        {
+          "text": "@sys.phone-number:phone-number",
+          "alias": "phone-number",
+          "meta": "@sys.phone-number",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "send "
+        },
+        {
+          "text": "voice",
+          "alias": "messagetype",
+          "meta": "@messagetype",
+          "userDefined": true
+        },
+        {
+          "text": " message "
+        },
+        {
+          "text": "@sys.any:message",
+          "alias": "message",
+          "meta": "@sys.any",
+          "userDefined": true
+        },
+        {
+          "text": " to "
+        },
+        {
+          "text": "@sys.phone-number:phone-number",
+          "alias": "phone-number",
+          "meta": "@sys.phone-number",
+          "userDefined": true
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "send "
+        },
+        {
+          "text": "text",
+          "alias": "messagetype",
+          "meta": "@messagetype",
+          "userDefined": true
+        },
+        {
+          "text": " message "
+        },
+        {
+          "text": "@sys.any:message",
+          "alias": "message",
+          "meta": "@sys.any",
+          "userDefined": true
+        },
+        {
+          "text": " to "
+        },
+        {
+          "text": "@sys.phone-number:phone-number",
+          "alias": "phone-number",
+          "meta": "@sys.phone-number",
+          "userDefined": true
+        },
+        {
+          "text": "\u0026nbsp;"
+        }
+      ],
+      "isTemplate": false
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "send-message",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": false,
+          "dataType": "@messagetype",
+          "name": "messagetype",
+          "value": "$messagetype"
+        },
+        {
+          "required": true,
+          "dataType": "@sys.phone-number",
+          "name": "phone-number",
+          "value": "$phone-number",
+          "prompts": [
+            "who should I send to?"
+          ]
+        },
+        {
+          "required": true,
+          "dataType": "@sys.any",
+          "name": "message",
+          "value": "$message",
+          "prompts": [
+            "What message I should send?"
+          ]
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "webhookUsed": false
+}

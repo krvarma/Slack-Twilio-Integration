@@ -1,0 +1,21 @@
+{
+  "id": "e8d621e6-07ee-4ffe-a4c2-152a7208b30a",
+  "name": "messagetype",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "voice",
+      "synonyms": [
+        "voice "
+      ]
+    },
+    {
+      "value": "text",
+      "synonyms": [
+        "text"
+      ]
+    }
+  ],
+  "isEnum": false,
+  "automatedExpansion": false
+}
