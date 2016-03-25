@@ -43,4 +43,8 @@ Also you can try
 
     twilio, send text message Hello from Twilio and Slack Integration Sample to <phone number> 
 
-This will send a text message to the phone number you specified.
+This will send a text message to the phone number specified.
+
+**Demo Video**
+
+https://www.youtube.com/watch?v=CqkUhvBrmrQ
